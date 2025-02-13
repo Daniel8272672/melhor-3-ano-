@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .bola{
+            width: 150px;
+            height: 150px;
+            background-color: blue;
+            border-radius: 50%;
+            position: absolute;
+            left: 0;
+            top: 50px;
+        }
+        button{
+            padding: 10px 20px;
+            margin: 5px;
+            cursor: pointer;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="bola" id="bola"></div>
+    <button id="botao">movimentar </button>
+
+    <script>
+        const bola = document.getElementById('bola');
+        let posx = 0;
+        const velocidade = 20;
+
+        botao.addEventListener('click', ()=>{
+            posx +=velocidade;
+            if (posx > 450) posx = 450;
+            console.log("estou clicando");
+            bola.style.left = posx + 'px';
+        
+        
+        });
+
+       
+
+        
+    </script>
+
+</body>
+</html>
