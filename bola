@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body{
+            background-image: url("0050f55673a2062d6b2770d9e3eb1b14.jpg");
+        }
+        #arena{
+            width: 600px;
+            height: 400px;
+            border: 2px slateblue;
+            position: relative;
+            margin: 20px;
+            background-color: rgb(49, 49, 59);
+
+        }
+        .bola{
+            width: 150px;
+            height: 150px;
+            background-color: rgb(11, 11, 14);
+            border-radius: 50%;
+            position: absolute;
+            left: 0;
+            top: 50px;
+        }
+        button{
+            padding: 10px 20px;
+            margin: 5px;
+            cursor: pointer;
+        }
+    </style>
+
+</head>
+<body>
+    
+    <button id="esquerda">esquerda</button>
+    <button id="direita">direita</button>
+    <button id="cima">cima </button>
+    <button id="baixo">baixo</button>
+
+   <div id="arena">
+       <div class="bola" id="bola"></div>
+   </div>
+
+    <script>
+
+    
+        const bola = document.getElementById('bola');
+        let posX = 0;
+        let posY = 0;
+        const velocidade = 20;
+
+        //posisição inicial da bola
+        bola.style.left = posX + "px";
+        bola.style.top = posY + "px";
+
+        //controles
+        document.getElementById('esquerda').addEventListener('click', () =>{
+            posX = Math.max(posX - velocidade, 0)
+            bola.style.left = posX + "px";
+        })
+
+        document.getElementById('direita').addEventListener('click' , () =>{
+            posX = Math.max(posX + velocidade);
+            bola.style.left = posX + "px";
+        })
+
+        document.getElementById('cima').addEventListener('click' , () =>{
+            posY = Math.max(posY - velocidade, 0);
+            bola.style.top = posY + "px";
+        })
+         
+        document.getElementById('baixo').addEventListener('click' ,() => {
+          posY = Math.max(posY + velocidade);
+          bola.style.top = posY + "px";  
+
+        })
+        
+
+
+
+
+        document.addEventListener('keydown' , (e) =>{
+            switch(e.key){
+                case 'ArrowLeft':
+                    posX = Math.max(posX - velocidade)
+                    break;
+            case'ArrowRight':
+                 posX = Math.max(posX + velocidade)
+                 break;
+            }
+            bola.style.left = posX + "px";
+        })
+
+       
+
+        
+    </script>
+
+</body>
+</html>
